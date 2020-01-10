@@ -46,6 +46,11 @@ cnpm install @types/jquery --save-dev
 jQuery 是一个全局变量，它是一个对象，提供了一个 jQuery.ajax 方法可以调用，
 那么我们就应该使用 declare namespace jQuery 来声明这个拥有多个子属性的全局变量。
 */
+/* 
+假如 jQuery 既是一个函数，可以直接被调用 jQuery('#foo')，
+又是一个对象，拥有子属性 jQuery.ajax()（事实确实如此），
+那么我们可以组合多个声明语句，它们会不冲突的合并起来 */
+declare function jQuery(selector: string): any;
 declare namespace jQuery {
     //暴露在最外层的 interface 或 type 会作为全局类型作用于整个项目中
     interface AjaxSettings {
@@ -76,3 +81,7 @@ console.log(jQuery.version, settings);
 declare namespace jQuery.fn {
     function extend(object: any): void;
 }
+
+//npm 包---
+//引入自定义
+

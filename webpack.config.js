@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const glob = require("glob");
 
 const entry = glob.sync("./ts/**/*.ts");
-    
+
 
 console.log(entry);
 module.exports = {
@@ -15,7 +15,7 @@ module.exports = {
         filename: '[name][hash].js'
     },
     module: {
-        rules: [ {
+        rules: [{
             test: /\.ts$/,
             loader: 'ts-loader'
         }]
