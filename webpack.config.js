@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const glob = require("glob");
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const entry = glob.sync("./ts/**/*.ts");
 
@@ -19,6 +20,9 @@ module.exports = {
             test: /\.ts$/,
             loader: 'ts-loader'
         }]
+    },
+    resolve: {
+        plugins: [new TsconfigPathsPlugin({ configFile: "./tsconfig.json" })]
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),

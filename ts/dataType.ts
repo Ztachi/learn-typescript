@@ -128,6 +128,34 @@ function sum1() {
 }
 //用 any 表示数组中允许出现任意类型
 let list: any[] = ['xcatliu', 25, { website: 'http://xcatliu.com' }];
+
+//数组合并了相同类型的对象，而元组（Tuple）合并了不同类型的对象。
+let tom4: [string, number];
+tom4 = ['tom', 25];//直接赋值length必须为定义的length。但是可以这样
+tom4.push(25);//当添加越界的元素时，它的类型会被限制为元组中每个类型的联合类型'string | number'
+// tom4.push({});
+console.log(tom4);
 //---------------------
 
 
+//类型别名用来给一个类型起个新名字------
+type Name = string;
+type NameResolver = () => string;
+type NameOrResolver = Name | NameResolver;
+function getName(n: NameOrResolver): Name {
+    if (typeof n === 'string') {
+        return n;
+    } else {
+        return n();
+    }
+}
+//字符串字面量类型用来约束取值只能是某几个字符串中的一个。---
+type EventNames = 'click' | 'scroll' | 'mousemove';
+function handleEvent(ele: Element, event: EventNames) {
+    // do something
+}
+
+handleEvent(document.getElementById('hello'), 'scroll');  // 没问题
+// handleEvent(document.getElementById('world'), 'dbclick'); // 报错，event 不能为 'dbclick'
+//类型别名与字符串字面量类型都是使用 type 进行定义
+//---------------------

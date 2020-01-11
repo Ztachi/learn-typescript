@@ -1,9 +1,12 @@
 {
-    "compilerOptions ": {
+
+    "compilerOptions": {
         "module": "commonjs",
         "baseUrl": "./",
         "paths": {
             "*": ["types/*"]
-        }
+        },
+        "outDir": "lib",
+        "declaration": true,
     }
 }
