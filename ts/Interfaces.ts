@@ -96,3 +96,16 @@ interface Person6 {
 // };
 
 // tom6.id = 89757;
+
+//接口的合并
+interface Alarm {
+    price: number;
+}
+interface Alarm {
+    weight: number;
+}
+//相当于
+/* interface Alarm {
+    price: number;
+    weight: number;
+} */

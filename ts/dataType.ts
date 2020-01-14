@@ -62,7 +62,6 @@ anyThing.myName.setFirstName('Cat'); */
 //---------------------
 
 
-
 //类型推论-------
 /* 
 let myFavoriteNumber = 'seven';
