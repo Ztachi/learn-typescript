@@ -98,10 +98,10 @@ interface Person6 {
 // tom6.id = 89757;
 
 //接口的合并
-interface Alarm {
+interface Alarm1 {
     price: number;
 }
-interface Alarm {
+interface Alarm1 {
     weight: number;
 }
 //相当于
